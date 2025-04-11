@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 628px) {
+    justify-content: flex-end;
+  }
+}
+
+.mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  inline-size: 100%;
+
+  @media (min-width: 629px) {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 14px;
+
+  @media (max-width: 628px) {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+.item {
+  display: flex;
+  flex-shrink: 0;
+  inline-size: fit-content;
+}
+
+.link {
+  padding: 6px 12px;
+  font-size: 16px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.accent {
+  background-color: var(--app-accent-color);
+}
