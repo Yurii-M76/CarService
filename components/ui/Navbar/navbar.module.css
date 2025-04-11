@@ -16,7 +16,7 @@
   align-items: center;
   inline-size: 100%;
 
-  @media (min-width: 629px) {
+  @media (min-width: 661px) {
     visibility: hidden;
     display: none;
   }
@@ -27,7 +27,7 @@
   flex-wrap: nowrap;
   gap: 14px;
 
-  @media (max-width: 628px) {
+  @media (max-width: 660px) {
     visibility: hidden;
     display: none;
   }

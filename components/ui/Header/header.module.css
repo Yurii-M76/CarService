@@ -53,5 +53,9 @@
 }
 
 .workSchedule {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
   font-size: 12px;
+  inline-size: fit-content;
 }
