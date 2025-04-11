@@ -1,0 +1,62 @@
+:root {
+  --app-bg-color: #141414;
+  --app-text-color: #ffffff;
+  --app-accent-color: #ff001d;
+  --app-bg-color-gray: #1e1e1e;
+  --app-outline-color: #282828;
+}
+
+body {
+  font-family: var(--font-manrope-sans);
+  background-color: var(--app-bg-color);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+  font-size: clamp(1.875rem, 1.142rem + 3.664vw, 4rem);
+}
+
+h3 {
+  font-weight: normal;
+  font-size: clamp(0.875rem, 0.659rem + 1.078vw, 1.5rem);
+}
+
+p {
+  font-weight: normal;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+button {
+  border: none;
+  color: var(--app-text-color);
+  background: none;
+}
+
+a {
+  color: var(--app-text-color);
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, -0.043rem + 6.466vw, 5rem);
+  margin: clamp(0.625rem, -1.364rem + 8.159vw, 5rem);
+  color: var(--app-text-color);
+  font-size: clamp(1rem, 0.828rem + 0.862vw, 1.5rem);
+  inline-size: 1248px;
+}

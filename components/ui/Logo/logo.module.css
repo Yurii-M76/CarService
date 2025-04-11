@@ -1,0 +1,17 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.image {
+  inline-size: clamp(2.25rem, 1.905rem + 1.724vw, 3.25rem);
+  block-size: auto;
+}
+
+.label {
+  font-weight: bold;
+  font-size: clamp(1.25rem, 1.164rem + 0.431vw, 1.5rem);
+}

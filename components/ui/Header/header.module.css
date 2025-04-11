@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  inline-size: inherit;
+  block-size: inherit;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--app-outline-color);
+  inline-size: inherit;
+  block-size: 140px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-inline-size: clamp(1rem, 0.397rem + 3.017vw, 2.75rem);
+  max-inline-size: 660px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  inline-size: 100%;
+}
