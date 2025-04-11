@@ -37,13 +37,22 @@ p {
 
 button {
   border: none;
-  color: var(--app-text-color);
+  color: currentColor;
+  line-height: inherit;
   background: none;
 }
 
 a {
-  color: var(--app-text-color);
+  color: currentColor;
+  line-height: inherit;
   text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  list-style: none;
 }
 
 .main {
