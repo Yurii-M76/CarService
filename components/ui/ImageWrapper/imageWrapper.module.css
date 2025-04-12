@@ -1,0 +1,15 @@
+.imageWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  overflow: hidden;
+  inline-size: 500px;
+  max-block-size: 300px;
+
+  @media (max-width: 1400px) {
+    inline-size: 100%;
+  }
+}
