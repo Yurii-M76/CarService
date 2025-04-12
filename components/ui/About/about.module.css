@@ -1,0 +1,32 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  /* min 20px max 60px */
+  gap: clamp(1.25rem, 0.388rem + 4.31vw, 3.75rem);
+
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+}
+
+.image {
+  filter: saturate(150%);
+  inline-size: inherit;
+  block-size: auto;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+}
