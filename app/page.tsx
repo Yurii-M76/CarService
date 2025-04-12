@@ -1,14 +1,17 @@
-import { HeaderUI, SectionUI } from "../components/ui";
+import { AboutUI, BrandsUI, HeaderUI, SectionUI } from "../components/ui";
 
 export default function HomePage() {
   return (
     <>
-      <SectionUI bgColor="gray" bgImage="cover.jpg" h={680}>
+      <SectionUI bgColor="gray" bgImage="cover.jpg" h={680} paddingX>
         <HeaderUI />
       </SectionUI>
 
-      <SectionUI bgColor="gray" h={680}>
-        ...
+      <SectionUI paddingX={false}>
+        <SectionUI paddingX pb={0}>
+          <AboutUI />
+        </SectionUI>
+        <BrandsUI />
       </SectionUI>
     </>
   );
