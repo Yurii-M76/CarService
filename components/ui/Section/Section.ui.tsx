@@ -3,6 +3,7 @@ import classes from "./section.module.css";
 
 type TSectionUI = {
   children: ReactNode;
+  paddingX: boolean;
   bgColor?: "gray" | "red";
   bgImage?: string;
   pt?: number;
@@ -13,6 +14,7 @@ type TSectionUI = {
 const SectionUI: FC<TSectionUI> = ({
   bgColor,
   bgImage,
+  paddingX,
   pt,
   pb,
   h,
@@ -33,6 +35,9 @@ const SectionUI: FC<TSectionUI> = ({
   const backgroundPosition = bgImage ? "top" : undefined;
   const height = h ? h : undefined;
 
+  const paddingLeft = !paddingX ? 0 : undefined;
+  const paddingRight = !paddingX ? 0 : undefined;
+
   return (
     <div
       className={classes.section}
@@ -45,6 +50,8 @@ const SectionUI: FC<TSectionUI> = ({
         paddingTop,
         paddingBottom,
         height,
+        paddingLeft,
+        paddingRight,
       }}
     >
       {children}
