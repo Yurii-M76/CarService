@@ -18,10 +18,16 @@ h3 {
   line-height: 1.1;
 }
 
-h1,
+h1 {
+  font-weight: normal;
+  /* min 30px, max 64px */
+  font-size: clamp(1.875rem, 1.142rem + 3.664vw, 4rem);
+}
+
 h2 {
   font-weight: normal;
-  font-size: clamp(1.875rem, 1.142rem + 3.664vw, 4rem);
+  /* min 28px, max 52px */
+  font-size: clamp(1.75rem, 1.233rem + 2.586vw, 3.25rem);
 }
 
 h3 {
