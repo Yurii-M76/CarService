@@ -70,7 +70,9 @@ ul {
   display: flex;
   flex-direction: column;
   gap: clamp(1.25rem, -0.043rem + 6.466vw, 5rem);
-  margin: clamp(0.625rem, -1.364rem + 8.159vw, 5rem);
+  /* minmax 10-40  minmax 0-40 */
+  margin: clamp(0.625rem, 0.032rem + 3.165vw, 2.5rem)
+    clamp(0rem, -0.791rem + 4.219vw, 2.5rem);
   color: var(--app-text-color);
   font-size: clamp(1rem, 0.828rem + 0.862vw, 1.5rem);
   inline-size: 1248px;
