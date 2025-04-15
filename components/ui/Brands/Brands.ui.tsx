@@ -9,12 +9,22 @@ const mockBrand = [
   { icon: "/brandIcons/Chevrolet.svg", label: "Chevrolet" },
   { icon: "/brandIcons/Fiat.svg", label: "Fiat" },
   { icon: "/brandIcons/Ford.svg", label: "Ford" },
+  { icon: "/brandIcons/Audi.svg", label: "Audi" },
+  { icon: "/brandIcons/Bmw.svg", label: "BMW" },
+  { icon: "/brandIcons/Chevrolet.svg", label: "Chevrolet" },
+  { icon: "/brandIcons/Fiat.svg", label: "Fiat" },
+  { icon: "/brandIcons/Ford.svg", label: "Ford" },
+  { icon: "/brandIcons/Bmw.svg", label: "BMW" },
+  { icon: "/brandIcons/Chevrolet.svg", label: "Chevrolet" },
+  { icon: "/brandIcons/Fiat.svg", label: "Fiat" },
+  { icon: "/brandIcons/Ford.svg", label: "Ford" },
 ];
 
 const BrandsUI = () => {
   const [opened, { toggle }] = useDisclosure(false);
 
-  const brands = mockBrand.map((item) => {
+  const brands = mockBrand.map((item, index) => {
+    if (!opened && index >= 5) return null;
     return <BrandCardUI icon={item.icon} label={item.label} />;
   });
 
@@ -26,6 +36,10 @@ const BrandsUI = () => {
       </p>
 
       <div className={classes.cards}>{brands}</div>
+
+      <span className={classes.openAll} onClick={toggle}>
+        {!opened ? "Показать все" : "Свернуть"}
+      </span>
     </div>
   );
 };

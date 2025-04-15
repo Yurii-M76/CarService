@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 40px;
   max-inline-size: inherit;
 }
 
@@ -9,6 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  max-inline-size: 700px;
 }
 
 .cards {
@@ -19,4 +21,15 @@
   gap: clamp(0.375rem, 0.296rem + 0.422vw, 0.625rem);
   overflow: hidden;
   max-inline-size: inherit;
+}
+
+.openAll {
+  padding: 14px 0;
+  color: var(--app-text-color-dimmed);
+  font-size: clamp(0.9rem, 0.737rem + 0.338vw, 1rem);
+}
+
+.openAll:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
