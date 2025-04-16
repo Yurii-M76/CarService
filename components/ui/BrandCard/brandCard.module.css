@@ -6,8 +6,7 @@
   border-radius: clamp(0.625rem, 0.348rem + 1.477vw, 1.5rem);
   font-size: clamp(0.85rem, 0.644rem + 1.097vw, 1.5rem);
   background-color: var(--app-bg-color-gray);
-  /* minmax 160 - 230*/
-  inline-size: clamp(7.5rem, 5.324rem + 11.603vw, 14.375rem);
+  inline-size: inherit;
   /* minmax 80 - 160*/
   block-size: clamp(5rem, 3.418rem + 8.439vw, 10rem);
 }
