@@ -1,7 +1,7 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--app-block-spacing-20);
 }
 
 .content {
@@ -28,5 +28,5 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 6px;
+  gap: var(--app-block-spacing-20);
 }
