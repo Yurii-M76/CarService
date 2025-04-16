@@ -1,0 +1,64 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 32px;
+  padding: clamp(1.25rem, 0.854rem + 2.11vw, 2.5rem);
+  overflow: hidden;
+  background-color: var(--app-bg-color-gray);
+  inline-size: inherit;
+  block-size: clamp(11.25rem, 10.063rem + 6.329vw, 15rem);
+}
+
+.card:hover {
+  background-color: var(--app-accent-color);
+}
+
+.top {
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.label {
+  max-inline-size: 250px;
+}
+
+.price {
+  z-index: 3;
+}
+
+.pre {
+  z-index: 3;
+  font-size: var(--app-font-size-sm);
+}
+
+.imageWrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(30, 30, 30, 0.6) 100%
+  );
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.image {
+  position: absolute;
+  right: -44%;
+  bottom: 0;
+  z-index: 1;
+  margin-bottom: 10px;
+  max-block-size: 90%;
+  min-block-size: 75%;
+  inline-size: 100%;
+}
