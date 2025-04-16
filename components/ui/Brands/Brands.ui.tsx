@@ -24,22 +24,27 @@ const BrandsUI = () => {
   const [opened, { toggle }] = useDisclosure(false);
 
   const brands = mockBrand.map((item, index) => {
-    if (!opened && index >= 5) return null;
+    if (!opened && index >= 4) return null;
     return <BrandCardUI icon={item.icon} label={item.label} />;
   });
 
   return (
     <div className={classes.brands}>
-      <p className={classes.text}>
-        Работаем с отечественными и иностранными брендами, в том числе с
-        коммерческим транспортом
-      </p>
+      <div className={classes.center}>
+        <h3 className={classes.title}>
+          Работаем с отечественными и иностранными брендами, в том числе с
+          коммерческим транспортом
+        </h3>
+      </div>
 
-      <div className={classes.cards}>{brands}</div>
-
-      <span className={classes.openAll} onClick={toggle}>
-        {!opened ? "Показать все" : "Свернуть"}
-      </span>
+      <div className={classes.cards}>
+        {brands}
+        <BrandCardUI
+          icon={""}
+          label={!opened ? "Показать все" : "Свернуть"}
+          onClick={toggle}
+        />
+      </div>
     </div>
   );
 };
