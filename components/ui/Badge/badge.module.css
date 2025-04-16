@@ -1,0 +1,19 @@
+.badge {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 3px 8px;
+  color: var(--app-text-color);
+  font-size: var(--app-font-size-xs);
+  inline-size: fit-content;
+}
+
+.red {
+  background-color: var(--app-accent-color);
+}
+
+.black {
+  background-color: var(--app-bg-color-gray);
+}
