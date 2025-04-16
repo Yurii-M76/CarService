@@ -5,10 +5,16 @@
   --app-bg-color-gray: #1e1e1e;
   --app-outline-color: #282828;
   --app-text-color-dimmed: #ffffff7e;
+  --app-block-spacing-20: clamp(0.625rem, 0.427rem + 1.055vw, 1.25rem);
+  --app-block-spacing-40: clamp(1.25rem, 0.854rem + 2.11vw, 2.5rem);
+  --app-font-size-md: clamp(1rem, 0.828rem + 0.862vw, 1.5rem);
+  --app-font-size-sm: clamp(0.75rem, 0.671rem + 0.422vw, 1rem);
+  --app-font-size-xs: clamp(0.563rem, 0.503rem + 0.316vw, 0.75rem);
 }
 
 body {
   font-family: var(--font-manrope-sans);
+  line-height: normal;
   background-color: var(--app-bg-color);
 }
 
@@ -37,6 +43,7 @@ h3 {
 }
 
 p {
+  margin: 0;
   font-weight: normal;
   font-size: inherit;
   line-height: 1.4;
@@ -70,11 +77,11 @@ ul {
 .container {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.25rem, -0.043rem + 6.466vw, 5rem);
+  gap: clamp(2.25rem, 1.38rem + 4.641vw, 5rem);
   /* minmax 10-40  minmax 0-40 */
   margin: clamp(0.625rem, 0.032rem + 3.165vw, 2.5rem)
     clamp(0rem, -0.791rem + 4.219vw, 2.5rem);
   color: var(--app-text-color);
-  font-size: clamp(1rem, 0.828rem + 0.862vw, 1.5rem);
+  font-size: var(--app-font-size-md);
   inline-size: 1248px;
 }
