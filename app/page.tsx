@@ -1,5 +1,6 @@
 import {
   AboutUI,
+  AdvantagesUI,
   BrandsUI,
   HeaderUI,
   SectionUI,
@@ -14,14 +15,16 @@ export default function HomePage() {
       </SectionUI>
 
       <SectionUI paddingX={false}>
-        <SectionUI paddingX pb={0}>
-          <AboutUI />
-        </SectionUI>
+        <AboutUI />
         <BrandsUI />
       </SectionUI>
 
       <SectionUI paddingX={false} pb={0}>
         <ServicesUI />
+      </SectionUI>
+
+      <SectionUI paddingX={false} pb={0}>
+        <AdvantagesUI />
       </SectionUI>
     </>
   );
