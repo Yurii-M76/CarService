@@ -7,6 +7,8 @@
   --app-text-color-dimmed: #ffffff7e;
   --app-block-spacing-20: clamp(0.625rem, 0.427rem + 1.055vw, 1.25rem);
   --app-block-spacing-40: clamp(1.25rem, 0.854rem + 2.11vw, 2.5rem);
+  --app-block-spacing-60: clamp(3.75rem, 3.354rem + 2.11vw, 5rem);
+  --app-block-marginX-80: 0 clamp(1.5rem, 0.293rem + 6.034vw, 5rem);
   --app-font-size-md: clamp(1rem, 0.828rem + 0.862vw, 1.5rem);
   --app-font-size-sm: clamp(0.75rem, 0.671rem + 0.422vw, 1rem);
   --app-font-size-xs: clamp(0.563rem, 0.503rem + 0.316vw, 0.75rem);
