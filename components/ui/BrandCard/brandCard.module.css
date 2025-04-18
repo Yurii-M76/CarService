@@ -12,6 +12,11 @@
 }
 
 .icon {
+  transition: transform 0.4s ease-in-out;
   /* minmax 50 - 120*/
   max-inline-size: clamp(3.125rem, 1.741rem + 7.384vw, 7.5rem);
+}
+
+.icon:hover {
+  transform: scale(1.15);
 }
