@@ -9,6 +9,7 @@ type TSectionUI = {
   pt?: number;
   pb?: number;
   h?: number;
+  g?: number;
 };
 
 const SectionUI: FC<TSectionUI> = ({
@@ -18,6 +19,7 @@ const SectionUI: FC<TSectionUI> = ({
   pt,
   pb,
   h,
+  g,
   children,
 }) => {
   const backgroundColor =
@@ -34,6 +36,7 @@ const SectionUI: FC<TSectionUI> = ({
   const backgroundSize = bgImage ? "cover" : undefined;
   const backgroundPosition = bgImage ? "top" : undefined;
   const height = h ? h : undefined;
+  const gap = g ? g : undefined;
 
   const paddingLeft = !paddingX ? 0 : undefined;
   const paddingRight = !paddingX ? 0 : undefined;
@@ -52,6 +55,7 @@ const SectionUI: FC<TSectionUI> = ({
         height,
         paddingLeft,
         paddingRight,
+        gap,
       }}
     >
       {children}
