@@ -23,7 +23,7 @@ export default function HomePage() {
         <ServicesUI />
       </SectionUI>
 
-      <SectionUI paddingX={false} pb={0}>
+      <SectionUI paddingX={false} pb={0} g={40}>
         <AdvantagesUI />
       </SectionUI>
     </>
