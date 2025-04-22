@@ -67,9 +67,10 @@ const mockItems = [
 ];
 
 const ServicesUI = () => {
-  const cards = mockItems.map((item) => {
+  const cards = mockItems.map((item, index) => {
     return (
       <ServiceCard
+        key={index}
         label={item.label}
         price={item.price}
         promo={item.promo}
