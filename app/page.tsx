@@ -5,6 +5,7 @@ import {
   HeaderUI,
   SectionUI,
   ServicesUI,
+  SurveyUI,
 } from "../components/ui";
 
 export default function HomePage() {
@@ -25,6 +26,10 @@ export default function HomePage() {
 
       <SectionUI paddingX={false} pb={0} g={40}>
         <AdvantagesUI />
+      </SectionUI>
+
+      <SectionUI paddingX bgColor="gray" paddingY>
+        <SurveyUI />
       </SectionUI>
     </>
   );
