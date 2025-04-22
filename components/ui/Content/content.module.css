@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--app-block-spacing-20);
+  gap: var(--app-spacing-20);
 }
 
 .image {

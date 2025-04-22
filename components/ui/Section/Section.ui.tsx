@@ -32,12 +32,12 @@ const SectionUI: FC<TSectionUI> = ({
       : undefined;
 
   const paddingTop = paddingY
-    ? "var(--app-block-spacing-80)"
+    ? "var(--app-spacing-80)"
     : pt !== undefined
     ? `${pt}px`
     : undefined;
   const paddingBottom = paddingY
-    ? "var(--app-block-spacing-80)"
+    ? "var(--app-spacing-80)"
     : pb !== undefined
     ? `${pb}px`
     : undefined;

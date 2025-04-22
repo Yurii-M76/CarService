@@ -1,7 +1,7 @@
 .services {
   display: flex;
   flex-direction: column;
-  gap: var(--app-block-spacing-40);
+  gap: var(--app-spacing-40);
   inline-size: inherit;
 }
 
