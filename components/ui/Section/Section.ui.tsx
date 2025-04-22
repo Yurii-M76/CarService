@@ -4,6 +4,7 @@ import classes from "./section.module.css";
 type TSectionUI = {
   children: ReactNode;
   paddingX: boolean;
+  paddingY?: boolean;
   bgColor?: "gray" | "red";
   bgImage?: string;
   pt?: number;
@@ -16,6 +17,7 @@ const SectionUI: FC<TSectionUI> = ({
   bgColor,
   bgImage,
   paddingX,
+  paddingY,
   pt,
   pb,
   h,
@@ -29,8 +31,16 @@ const SectionUI: FC<TSectionUI> = ({
       ? "var(--app-accent-color)"
       : undefined;
 
-  const paddingTop = pt !== undefined ? `${pt}px` : undefined;
-  const paddingBottom = pb !== undefined ? `${pb}px` : undefined;
+  const paddingTop = paddingY
+    ? "var(--app-block-spacing-80)"
+    : pt !== undefined
+    ? `${pt}px`
+    : undefined;
+  const paddingBottom = paddingY
+    ? "var(--app-block-spacing-80)"
+    : pb !== undefined
+    ? `${pb}px`
+    : undefined;
   const backgroundImage = bgImage ? `url(/${bgImage})` : undefined;
   const backgroundRepeat = bgImage ? "no-repeat" : undefined;
   const backgroundSize = bgImage ? "cover" : undefined;
