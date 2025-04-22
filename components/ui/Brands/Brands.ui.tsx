@@ -25,7 +25,7 @@ const BrandsUI = () => {
 
   const brands = mockBrand.map((item, index) => {
     if (!opened && index >= 4) return null;
-    return <BrandCardUI icon={item.icon} label={item.label} />;
+    return <BrandCardUI key={index} icon={item.icon} label={item.label} />;
   });
 
   return (
