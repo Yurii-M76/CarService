@@ -26,15 +26,15 @@ const ContentUI: FC<TContentUI> = ({
 }) => {
   const gap = gapContent && {
     gap: {
-      sm: "var(--app-block-spacing-20)",
-      md: "var(--app-block-spacing-40)",
-      lg: "var(--app-block-spacing-60)",
+      sm: "var(--app-spacing-20)",
+      md: "var(--app-spacing-40)",
+      lg: "var(--app-spacing-60)",
     }[gapContent],
   };
 
   const margin = marginX
     ? {
-        margin: "var(--app-block-marginX-80)",
+        margin: "0 var(--app-spacing-80)",
       }
     : undefined;
 
@@ -45,6 +45,7 @@ const ContentUI: FC<TContentUI> = ({
         alt={title}
         width={500}
         height={500}
+        loading="lazy"
         className={classes.image}
       />
     </ImageWrapperUI>
