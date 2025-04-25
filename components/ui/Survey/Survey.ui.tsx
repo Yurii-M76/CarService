@@ -1,54 +1,114 @@
 "use client";
-import { FC, useState } from "react";
-import { Input, Radio } from "@mantine/core";
+import { FormEvent, useState } from "react";
+import { useForm } from "react-hook-form";
 import ButtonUI from "../Button/Button.ui";
 import classes from "./survey.module.css";
 
-const SurveyUI = () => {
-  const [active, setActive] = useState(0);
-  const nextStep = () =>
-    setActive((current) => (current < 5 ? current + 1 : current));
-  const prevStep = () =>
-    setActive((current) => (current > 0 ? current - 1 : current));
+type TInitialState = {
+  problem: string;
+  release: string;
+  odometer: string;
+  model: string;
+  components: string;
+  contactName: string;
+  contactPhone: string;
+  contactMethod: string;
+  note: string;
+};
 
-  const step_1 = (
+const inputValues = {
+  problem: {
+    label: "С какой проблемой вы хотите к нам обратиться?",
+    values: [
+      "Плановое техобслуживание",
+      "Диагностика",
+      "Посторонний шум",
+      "Неисправность электрики",
+      "После ДТП",
+      "Другое",
+    ],
+  },
+  release: {
+    label: "Укажите год выпуска автомобиля",
+  },
+  odometer: {
+    label: "Укажите пробег",
+    values: [
+      "до 15 тыс. км.",
+      "от 15 до 45 тыс. км.",
+      "от 45 до 100 тыс. км.",
+      "от 100 до 200 тыс. км.",
+      "от 200 до 400 тыс. км.",
+      "больше 400 тыс. км.",
+    ],
+  },
+  model: {
+    label: "Укажите марку и модель",
+  },
+  components: {
+    label: "Какие расходные комплектующие и материалы предпочитаете?",
+    values: [
+      "Только оригинальные",
+      "Рекомендованные от известных брендов",
+      "Рассмотрю все варианты",
+    ],
+  },
+  contact: {
+    label: "Все готово для рассчета стоимости ремонта",
+    description:
+      'Заполните поля "Имя", "Телефон" и выберите предпочтительный способ для связи',
+    values: ["Whats App", "Telegram", "Звонок"],
+  },
+};
+
+const SurveyUI = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const nextStep = () =>
+    setCurrentStep((current) => (current < 5 ? current + 1 : current));
+  const prevStep = () =>
+    setCurrentStep((current) => (current > 0 ? current - 1 : current));
+
+  const initialValues: TInitialState = {
+    problem: "",
+    release: "",
+    odometer: "",
+    model: "",
+    components: "",
+    contactName: "",
+    contactPhone: "",
+    contactMethod: "",
+    note: "",
+  };
+  const { getValues, setValue } = useForm<TInitialState>({
+    defaultValues: initialValues,
+  });
+
+  const radioInputs = (step: keyof TInitialState, values: string[]) => {
+    const inputs = values.map((value, index) => (
+      <div key={index} className={classes.radioItem}>
+        <input
+          type="radio"
+          id={index.toString()}
+          name={step}
+          value={value}
+          defaultChecked={getValues()[step] === value}
+          onChange={(event) => {
+            setValue(step, event.currentTarget.value);
+          }}
+        />
+        <label htmlFor={index.toString()}>{value}</label>
+      </div>
+    ));
+
+    return <div className={classes.radioGroup}>{inputs}</div>;
+  };
+
+  const problem = (
     <>
-      <h3>С какой проблемой вы хотите к нам обратиться?</h3>
+      <h3>{inputValues.problem.label}</h3>
 
       <div className={classes.inputGroup}>
-        <Radio.Group name="problem">
-          <div className={classes.radioGroup}>
-            <div className={classes.radioItem}>
-              <Radio id="1" value="1" color="#ff001d" size="md" />
-              <label htmlFor="1">Плановое техобслуживание</label>
-            </div>
-
-            <div className={classes.radioItem}>
-              <Radio id="2" value="2" color="#ff001d" size="md" />
-              <label htmlFor="2">Диагностика</label>
-            </div>
-
-            <div className={classes.radioItem}>
-              <Radio id="3" value="3" color="#ff001d" size="md" />
-              <label htmlFor="3">Посторонний шум</label>
-            </div>
-
-            <div className={classes.radioItem}>
-              <Radio id="4" value="4" color="#ff001d" size="md" />
-              <label htmlFor="4">Неисправность электрики</label>
-            </div>
-
-            <div className={classes.radioItem}>
-              <Radio id="5" value="5" color="#ff001d" size="md" />
-              <label htmlFor="5">После ДТП</label>
-            </div>
-
-            <div className={classes.radioItem}>
-              <Radio id="6" value="6" color="#ff001d" size="md" />
-              <label htmlFor="6">Другое</label>
-            </div>
-          </div>
-        </Radio.Group>
+        {radioInputs("problem", inputValues.problem.values)}
 
         <textarea
           name=""
@@ -57,151 +117,111 @@ const SurveyUI = () => {
           rows={8}
           placeholder="Ваш комментарий"
           className={classes.input}
+          defaultValue={getValues().note}
+          onChange={(event) => setValue("note", event.currentTarget.value)}
         />
       </div>
     </>
   );
 
-  const step_2 = (
+  const release = (
     <>
-      <h3>Укажите год выпуска автомобиля</h3>
-      <input type="text" className={classes.input} placeholder="2012" />
-    </>
-  );
-
-  const step_3 = (
-    <>
-      <h3>Укажите пробег</h3>
-      <Radio.Group name="odometer">
-        <div className={classes.radioGroup}>
-          <div className={classes.radioItem}>
-            <Radio id="7" value="1" color="#ff001d" size="md" />
-            <label htmlFor="7">до 15 тыс. км.</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="8" value="2" color="#ff001d" size="md" />
-            <label htmlFor="8">от 15 до 45 тыс. км.</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="9" value="3" color="#ff001d" size="md" />
-            <label htmlFor="9">от 45 до 100 тыс. км.</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="10" value="4" color="#ff001d" size="md" />
-            <label htmlFor="10">от 100 до 200 тыс. км.</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="11" value="5" color="#ff001d" size="md" />
-            <label htmlFor="11">от 200 до 400 тыс. км.</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="12" value="6" color="#ff001d" size="md" />
-            <label htmlFor="12">больше 400 тыс. км.</label>
-          </div>
-        </div>
-      </Radio.Group>
-    </>
-  );
-
-  const step_4 = (
-    <>
-      <h3>Укажите марку и модель</h3>
+      <h3>{inputValues.release.label}</h3>
       <input
         type="text"
         className={classes.input}
-        placeholder="Hyundai Solaris"
+        placeholder="2012"
+        defaultValue={getValues().release}
+        onChange={(event) => setValue("release", event.currentTarget.value)}
       />
     </>
   );
 
-  const step_5 = (
+  const odometer = (
     <>
-      <h3>Какие расходные комплектующие и материалы предпочитаете?</h3>
-      <Radio.Group name="accessories">
-        <div className={classes.radioGroup}>
-          <div className={classes.radioItem}>
-            <Radio id="13" value="1" color="#ff001d" size="md" />
-            <label htmlFor="13">Только оригинальные</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="14" value="2" color="#ff001d" size="md" />
-            <label htmlFor="14">Рекомендованные от известных брендов</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="15" value="3" color="#ff001d" size="md" />
-            <label htmlFor="15">Рассмотрю все варианты</label>
-          </div>
-        </div>
-      </Radio.Group>
+      <h3>{inputValues.odometer.label}</h3>
+      {radioInputs("odometer", inputValues.odometer.values)}
     </>
   );
 
-  const step_6 = (
+  const model = (
     <>
-      <h3>Все готово для рассчета стоимости ремонта</h3>
-      <p>
-        Заполните поля "Имя", "Телефон" и выберите предпочтительный способ для
-        связи
-      </p>
+      <h3>{inputValues.model.label}</h3>
+      <input
+        type="text"
+        className={classes.input}
+        placeholder="Hyundai Solaris"
+        defaultValue={getValues().model}
+        onChange={(event) => setValue("model", event.currentTarget.value)}
+      />
+    </>
+  );
+
+  const components = (
+    <>
+      <h3>{inputValues.components.label}</h3>
+      {radioInputs("components", inputValues.components.values)}
+    </>
+  );
+
+  const contact = (
+    <>
+      <h3>{inputValues.contact.label}</h3>
+      <p>{inputValues.contact.description}</p>
 
       <div className={classes.inputGroup}>
-        <input type="text" className={classes.input} placeholder="Ваше имя" />
         <input
           type="text"
           className={classes.input}
+          placeholder="Ваше имя"
+          defaultValue={getValues().contactName}
+          onChange={(event) =>
+            setValue("contactName", event.currentTarget.value)
+          }
+        />
+        <input
+          type="tel"
+          className={classes.input}
           placeholder="Номер телефона"
+          defaultValue={getValues().contactPhone}
+          onChange={(event) =>
+            setValue("contactPhone", event.currentTarget.value)
+          }
         />
       </div>
 
-      <Radio.Group name="accessories">
-        <div className={classes.radioGroup}>
-          <div className={classes.radioItem}>
-            <Radio id="16" value="1" color="#ff001d" size="md" />
-            <label htmlFor="16">Whats App</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="17" value="2" color="#ff001d" size="md" />
-            <label htmlFor="17">Telegram</label>
-          </div>
-
-          <div className={classes.radioItem}>
-            <Radio id="18" value="3" color="#ff001d" size="md" />
-            <label htmlFor="18">Звонок</label>
-          </div>
-        </div>
-      </Radio.Group>
+      {radioInputs("contactMethod", inputValues.contact.values)}
     </>
   );
 
-  const steps = [step_1, step_2, step_3, step_4, step_5, step_6];
+  const parts = [problem, release, odometer, model, components, contact];
 
-  const formBody = steps.map((step, index) => {
+  const formBody = parts.map((part, index) => {
     return (
-      active === index && (
+      currentStep === index && (
         <div key={index} className={classes.formBody}>
-          {step}
+          {part}
         </div>
       )
     );
   });
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(getValues());
+  };
+
+  console.log(currentStep);
 
   return (
     <>
       <h2>Расчет стоимости ремонта</h2>
       <p>Ответьте на 5 вопросов и получите скидку 10% на диагностику</p>
 
-      <form action="" method="post" className={classes.form}>
+      <form method="post" className={classes.form} onSubmit={handleSubmit}>
         {formBody}
         <div className={classes.buttonGroup}>
-          {active > 0 && (
+          {currentStep > 0 && (
             <ButtonUI
               label="Назад"
               variant="outline"
@@ -211,10 +231,11 @@ const SurveyUI = () => {
           )}
 
           <ButtonUI
-            label={active < 5 ? "Дальше" : "Узнать стоимость"}
+            label={currentStep < 5 ? "Дальше" : "Узнать стоимость"}
             variant="accent"
-            type="button"
-            onClick={nextStep}
+            type={currentStep === 5 ? "submit" : "button"}
+            onClick={currentStep < 5 ? nextStep : undefined}
+            isDisabled={getValues().contactPhone === "" ? true : false}
           />
         </div>
       </form>
