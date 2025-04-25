@@ -72,6 +72,12 @@ ul {
   list-style: none;
 }
 
+input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--app-accent-color);
+}
+
 .main {
   display: flex;
   justify-content: center;
