@@ -1,7 +1,7 @@
+import Image from "next/image";
 import ContentUI from "../Content/Content.ui";
 import ButtonUI from "../Button/Button.ui";
 import classes from "./advantages.module.css";
-import Image from "next/image";
 
 const AdvantagesUI = () => {
   const itemIcon = (
