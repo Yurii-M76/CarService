@@ -29,3 +29,9 @@
 .button:hover {
   cursor: pointer;
 }
+
+.button:disabled {
+  border: 2px solid transparent;
+  background-color: gray;
+  cursor: not-allowed;
+}
