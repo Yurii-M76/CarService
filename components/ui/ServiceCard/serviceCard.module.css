@@ -8,7 +8,7 @@
   overflow: hidden;
   background-color: var(--app-bg-color-gray);
   inline-size: inherit;
-  block-size: clamp(11.25rem, 10.063rem + 6.329vw, 15rem);
+  block-size: clamp(8rem, 7.367rem + 3.376vw, 10rem);
 }
 
 .card:hover {
