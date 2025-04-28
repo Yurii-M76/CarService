@@ -1,13 +1,6 @@
 import { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React from "react";
-import {
-  MantineProvider,
-  ColorSchemeScript,
-  mantineHtmlProps,
-} from "@mantine/core";
-import { theme } from "../theme";
-import "@mantine/core/styles.css";
 import "./globals.css";
 
 const manropeSans = Manrope({
@@ -22,9 +15,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: any }) {
   return (
-    <html lang="ru" {...mantineHtmlProps}>
+    <html lang="ru">
       <head>
-        <ColorSchemeScript />
         <link rel="shortcut icon" href="/logo.svg" />
         <meta
           name="viewport"
@@ -32,11 +24,9 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body className={`${manropeSans.variable}`}>
-        <MantineProvider theme={theme}>
-          <main className="main">
-            <div className="container">{children}</div>
-          </main>
-        </MantineProvider>
+        <main className="main">
+          <div className="container">{children}</div>
+        </main>
         <div id="modals"></div>
       </body>
     </html>
