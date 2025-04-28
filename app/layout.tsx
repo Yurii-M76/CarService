@@ -7,7 +7,6 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import { theme } from "../theme";
-
 import "@mantine/core/styles.css";
 import "./globals.css";
 
@@ -38,6 +37,7 @@ export default function RootLayout({ children }: { children: any }) {
             <div className="container">{children}</div>
           </main>
         </MantineProvider>
+        <div id="modals"></div>
       </body>
     </html>
   );
