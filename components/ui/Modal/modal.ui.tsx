@@ -1,4 +1,4 @@
-import { CSSProperties, FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import ActionIconUI from "../ActionIcon/ActionIcon.ui";
 import ModalOverlayUI from "../Modal-overlay/modal-overlay";
 import classes from "./modal.module.css";
