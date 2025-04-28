@@ -1,6 +1,7 @@
 :root {
   --app-bg-color: #141414;
   --app-text-color: #ffffff;
+  --app-text-color-dark: #1e1e1e;
   --app-accent-color: #ff001d;
   --app-bg-color-gray: #1e1e1e;
   --app-outline-color: #282828;
@@ -43,6 +44,11 @@ h2 {
 h3 {
   font-weight: normal;
   font-size: clamp(1.25rem, 0.934rem + 1.688vw, 2.25rem);
+}
+
+h4 {
+  font-weight: normal;
+  font-size: clamp(1.2rem, 1.01rem + 1.013vw, 1.8rem);
 }
 
 p {
@@ -93,4 +99,8 @@ input[type="radio"] {
   color: var(--app-text-color);
   font-size: var(--app-font-size-md);
   inline-size: 1248px;
+}
+
+[data-scroll-locked="1"] {
+  overflow: hidden;
 }
