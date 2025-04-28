@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, memo, ReactNode } from "react";
 import ActionIconUI from "../ActionIcon/ActionIcon.ui";
 import ModalOverlayUI from "../Modal-overlay/modal-overlay";
 import classes from "./modal.module.css";
@@ -9,10 +9,10 @@ type TModalUI = {
   children?: ReactNode;
 };
 
-const ModalUI: FC<TModalUI> = ({ title, children, onClose }) => {
+const ModalUI: FC<TModalUI> = memo(({ title, children, onClose }) => {
   return (
     <>
-      <div className={classes.modal}>
+      <div id="modal" className={classes.modal}>
         <div className={classes.header}>
           <h4 className={classes.title}>{title}</h4>
           <ActionIconUI onClick={onClose}>
@@ -38,6 +38,6 @@ const ModalUI: FC<TModalUI> = ({ title, children, onClose }) => {
       <ModalOverlayUI onClick={onClose} />
     </>
   );
-};
+});
 
 export default ModalUI;
