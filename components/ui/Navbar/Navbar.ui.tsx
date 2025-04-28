@@ -1,16 +1,13 @@
 "use client";
 import { FC } from "react";
-import classes from "./navbar.module.css";
 import Link from "next/link";
-import { Burger } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import classes from "./navbar.module.css";
 
 type TNavbar = {
   links: { path: string; label: string; accent: boolean }[];
 };
 
 const Navbar: FC<TNavbar> = ({ links }) => {
-  const [opened, { toggle }] = useDisclosure();
   return (
     <>
       <nav className={classes.navbar}>
@@ -29,13 +26,7 @@ const Navbar: FC<TNavbar> = ({ links }) => {
           ))}
         </ul>
 
-        <Burger
-          className={classes.mobile}
-          opened={opened}
-          onClick={toggle}
-          aria-label="Toggle navigation"
-          color="var(--app-accent-color)"
-        />
+        <div className={classes.burger}>Burger</div>
       </nav>
     </>
   );
