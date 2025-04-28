@@ -211,8 +211,6 @@ const SurveyUI = () => {
     console.log(getValues());
   };
 
-  console.log(currentStep);
-
   return (
     <>
       <h2>Расчет стоимости ремонта</h2>
