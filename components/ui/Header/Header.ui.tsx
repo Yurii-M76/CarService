@@ -1,5 +1,7 @@
-import { FC } from "react";
+"use client";
 import { ButtonUI, LogoUI, NavbarUI } from "..";
+import { useState } from "react";
+import AppModal from "../../modal/Modal";
 import classes from "./header.module.css";
 
 const mockLinks = [
@@ -9,6 +11,8 @@ const mockLinks = [
 ];
 
 const HeaderUI = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <div className={classes.header}>
       <div className={classes.top}>
@@ -31,9 +35,10 @@ const HeaderUI = () => {
         </h1>
         <div className={classes.buttons}>
           <ButtonUI
-            label="Узнать стоимость ремонта >"
+            label="Узнать стоимость ремонта"
             type="button"
             variant="accent"
+            onClick={() => setOpenModal(true)}
           />
           <ButtonUI
             label="Выездная диагностика"
@@ -42,6 +47,13 @@ const HeaderUI = () => {
           />
         </div>
       </div>
+      <AppModal
+        title="Заголовок"
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      >
+        Контент
+      </AppModal>
     </div>
   );
 };
