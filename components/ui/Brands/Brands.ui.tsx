@@ -1,5 +1,5 @@
 "use client";
-import { useDisclosure } from "@mantine/hooks";
+import { useState } from "react";
 import { BrandCardUI } from "..";
 import classes from "./brands.module.css";
 
@@ -21,10 +21,10 @@ const mockBrand = [
 ];
 
 const BrandsUI = () => {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const brands = mockBrand.map((item, index) => {
-    if (!opened && index >= 4) return null;
+    if (!isOpen && index >= 4) return null;
     return <BrandCardUI key={index} icon={item.icon} label={item.label} />;
   });
 
@@ -41,8 +41,8 @@ const BrandsUI = () => {
         {brands}
         <BrandCardUI
           icon={""}
-          label={!opened ? "Показать все" : "Свернуть"}
-          onClick={toggle}
+          label={!isOpen ? "Показать все" : "Свернуть"}
+          onClick={() => setIsOpen(!isOpen)}
         />
       </div>
     </div>
