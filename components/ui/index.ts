@@ -13,3 +13,4 @@ export { default as SectionUI } from "./Section/Section.ui";
 export { default as ButtonUI } from "./Button/Button.ui";
 export { default as ImageWrapperUI } from "./ImageWrapper/ImageWrapper.ui";
 export { default as BadgeUI } from "./Badge/Badge.ui";
+export { default as ActionIconUI } from "./ActionIcon/ActionIcon.ui";

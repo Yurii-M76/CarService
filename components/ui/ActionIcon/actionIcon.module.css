@@ -1,0 +1,21 @@
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  padding: 4px;
+  color: var(--app-outline-color);
+  background-color: #f4f4f4;
+  inline-size: clamp(1.75rem, 1.592rem + 0.844vw, 2.25rem);
+  block-size: clamp(1.75rem, 1.592rem + 0.844vw, 2.25rem);
+}
+
+.icon:hover {
+  background-color: #eae9e9;
+  cursor: pointer;
+}
+
+.icon:active {
+  transform: translateY(1px);
+}
