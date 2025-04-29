@@ -47,6 +47,7 @@
   border-radius: 16px;
   padding: var(--app-spacing-20);
   color: var(--app-text-color);
+  font-family: var(--font-manrope-sans);
   font-size: var(--app-font-size-md);
   background-color: transparent;
 }
