@@ -40,4 +40,5 @@ const ModalUI: FC<TModalUI> = memo(({ title, children, onClose }) => {
   );
 });
 
+ModalUI.displayName = 'ModalUI';
 export default ModalUI;

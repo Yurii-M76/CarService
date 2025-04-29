@@ -15,6 +15,10 @@ const AppModal: FC<TModalProps> = ({ title, children, isOpen, onClose }) => {
   const [root, setRoot] = useState<HTMLElement | null>(null);
 
   if (root) root.dataset.scrollLocked = isOpen ? "1" : "0";
+  if (modalRoot)
+    isOpen
+      ? modalRoot.classList.add("open")
+      : modalRoot.classList.remove("open");
 
   useEffect(() => {
     setRoot(document.body);
