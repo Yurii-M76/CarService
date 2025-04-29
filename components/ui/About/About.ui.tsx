@@ -1,17 +1,21 @@
+import { FC } from "react";
 import ContentUI from "../Content/Content.ui";
+import { TAbout } from "../../../types";
 
-const AboutUI = () => {
+const AboutUI: FC<TAbout> = ({
+  title,
+  description,
+  pathImage,
+  positionImage,
+}) => {
   return (
     <ContentUI
-      variant="leftImage"
-      title="Профессиональные механики с большим опытом работы"
-      pathImage="/about-image.jpg"
+      variant={positionImage}
+      title={title}
+      pathImage={pathImage}
       marginX
     >
-      <span>
-        Узнайте цену ремонта своего авто за 1 минуту и получите скидку на
-        диагностику <strong>10%*</strong>
-      </span>
+      <span>{description}</span>
     </ContentUI>
   );
 };

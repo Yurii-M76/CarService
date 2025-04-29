@@ -1,6 +1,5 @@
-import { Header, Survey } from "../components";
+import { About, Header, Survey } from "../components";
 import {
-  AboutUI,
   AdvantagesUI,
   BrandsUI,
   SectionUI,
@@ -15,7 +14,7 @@ export default function HomePage() {
       </SectionUI>
 
       <SectionUI paddingX={false}>
-        <AboutUI />
+        <About />
         <BrandsUI />
       </SectionUI>
 
