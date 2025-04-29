@@ -1,3 +1,4 @@
+import { Survey } from "../components";
 import {
   AboutUI,
   AdvantagesUI,
@@ -5,7 +6,6 @@ import {
   HeaderUI,
   SectionUI,
   ServicesUI,
-  SurveyUI,
 } from "../components/ui";
 
 export default function HomePage() {
@@ -29,7 +29,7 @@ export default function HomePage() {
       </SectionUI>
 
       <SectionUI paddingX bgColor="gray" paddingY>
-        <SurveyUI />
+        <Survey />
       </SectionUI>
     </>
   );
