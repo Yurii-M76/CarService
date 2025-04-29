@@ -1,7 +1,8 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import ButtonUI from "../Button/Button.ui";
+import { TSurveyItems } from "../../../types";
 import classes from "./survey.module.css";
 
 type TInitialState = {
@@ -16,53 +17,9 @@ type TInitialState = {
   note: string;
 };
 
-const inputValues = {
-  problem: {
-    label: "С какой проблемой вы хотите к нам обратиться?",
-    values: [
-      "Плановое техобслуживание",
-      "Диагностика",
-      "Посторонний шум",
-      "Неисправность электрики",
-      "После ДТП",
-      "Другое",
-    ],
-  },
-  release: {
-    label: "Укажите год выпуска автомобиля",
-  },
-  odometer: {
-    label: "Укажите пробег",
-    values: [
-      "до 15 тыс. км.",
-      "от 15 до 45 тыс. км.",
-      "от 45 до 100 тыс. км.",
-      "от 100 до 200 тыс. км.",
-      "от 200 до 400 тыс. км.",
-      "больше 400 тыс. км.",
-    ],
-  },
-  model: {
-    label: "Укажите марку и модель",
-  },
-  components: {
-    label: "Какие расходные комплектующие и материалы предпочитаете?",
-    values: [
-      "Только оригинальные",
-      "Рекомендованные от известных брендов",
-      "Рассмотрю все варианты",
-    ],
-  },
-  contact: {
-    label: "Все готово для рассчета стоимости ремонта",
-    description:
-      'Заполните поля "Имя", "Телефон" и выберите предпочтительный способ для связи',
-    values: ["Whats App", "Telegram", "Звонок"],
-  },
-};
-
-const SurveyUI = () => {
+const SurveyUI: FC<TSurveyItems> = ({ items }) => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isCompleted, setIsCompleted] = useState(false);
   const nextStep = () =>
     setCurrentStep((current) => (current < 5 ? current + 1 : current));
   const prevStep = () =>
@@ -105,10 +62,10 @@ const SurveyUI = () => {
 
   const problem = (
     <>
-      <h3>{inputValues.problem.label}</h3>
+      <h3>{items.problem.label}</h3>
 
       <div className={classes.inputGroup}>
-        {radioInputs("problem", inputValues.problem.values)}
+        {radioInputs("problem", items.problem.values || [])}
 
         <textarea
           name=""
@@ -126,7 +83,7 @@ const SurveyUI = () => {
 
   const release = (
     <>
-      <h3>{inputValues.release.label}</h3>
+      <h3>{items.release.label}</h3>
       <input
         type="text"
         className={classes.input}
@@ -139,14 +96,14 @@ const SurveyUI = () => {
 
   const odometer = (
     <>
-      <h3>{inputValues.odometer.label}</h3>
-      {radioInputs("odometer", inputValues.odometer.values)}
+      <h3>{items.odometer.label}</h3>
+      {radioInputs("odometer", items.odometer.values || [])}
     </>
   );
 
   const model = (
     <>
-      <h3>{inputValues.model.label}</h3>
+      <h3>{items.model.label}</h3>
       <input
         type="text"
         className={classes.input}
@@ -159,15 +116,15 @@ const SurveyUI = () => {
 
   const components = (
     <>
-      <h3>{inputValues.components.label}</h3>
-      {radioInputs("components", inputValues.components.values)}
+      <h3>{items.components.label}</h3>
+      {radioInputs("components", items.components.values || [])}
     </>
   );
 
   const contact = (
     <>
-      <h3>{inputValues.contact.label}</h3>
-      <p>{inputValues.contact.description}</p>
+      <h3>{items.contact.label}</h3>
+      <p>{items.contact.description}</p>
 
       <div className={classes.inputGroup}>
         <input
@@ -184,13 +141,14 @@ const SurveyUI = () => {
           className={classes.input}
           placeholder="Номер телефона"
           defaultValue={getValues().contactPhone}
-          onChange={(event) =>
-            setValue("contactPhone", event.currentTarget.value)
-          }
+          onChange={(event) => {
+            setValue("contactPhone", event.currentTarget.value);
+            setIsCompleted(event.currentTarget.value.length > 9);
+          }}
         />
       </div>
 
-      {radioInputs("contactMethod", inputValues.contact.values)}
+      {radioInputs("contactMethod", items.contact.values || [])}
     </>
   );
 
@@ -208,7 +166,6 @@ const SurveyUI = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(getValues());
   };
 
   return (
@@ -233,7 +190,7 @@ const SurveyUI = () => {
             variant="accent"
             type={currentStep === 5 ? "submit" : "button"}
             onClick={currentStep < 5 ? nextStep : undefined}
-            isDisabled={getValues().contactPhone === "" ? true : false}
+            isDisabled={currentStep === 5 && !isCompleted ? true : false}
           />
         </div>
       </form>
