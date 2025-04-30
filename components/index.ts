@@ -1,7 +1,7 @@
-export { default as Header } from "./header/Header";
-export { default as About } from "./about/About";
-export { default as Brands } from "./brands/Brands";
-export { default as Services } from "./services/Services";
-export { default as ServiceCard } from "./service-card/ServiceCard";
-export { default as Survey } from "./survey/Survey";
-export { default as AppModal } from "./modal/Modal";
+export * from "./header";
+export * from "./about";
+export * from "./brands";
+export * from "./modal";
+export * from "./service-card";
+export * from "./services";
+export * from "./survey";
