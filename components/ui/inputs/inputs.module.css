@@ -12,3 +12,11 @@
   border: 1px solid var(--app-accent-color);
   outline: none;
 }
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 16px;
+}
