@@ -1,4 +1,3 @@
-"use client";
 import { FC } from "react";
 import Image from "next/image";
 import classes from "./brandCard.module.css";
