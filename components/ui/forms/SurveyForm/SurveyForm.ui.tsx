@@ -1,6 +1,7 @@
 import { FC, FormEvent, ReactNode } from "react";
 import { useForm } from "react-hook-form";
-import ButtonUI from "../../Button/Button.ui";
+import { InputRadioUI, InputUI, TextAreaUI } from "../../inputs";
+import { ButtonUI } from "../../Button";
 import { TSurveyItems } from "../../../../types";
 import classes from "./surveyForm.module.css";
 
@@ -50,19 +51,17 @@ const SurvayFormUI: FC<TSurvayFormUI> = ({
 
   const radioInputs = (step: keyof TInitialState, values: string[]) => {
     const inputs = values.map((value, index) => (
-      <div key={index} className={classes.radioItem}>
-        <input
-          type="radio"
-          id={index.toString()}
-          name={step}
-          value={value}
-          defaultChecked={getValues()[step] === value}
-          onChange={(event) => {
-            setValue(step, event.currentTarget.value);
-          }}
-        />
-        <label htmlFor={index.toString()}>{value}</label>
-      </div>
+      <InputRadioUI
+        key={index}
+        id={index.toString()}
+        name={step}
+        label={value}
+        value={value}
+        defaultChecked={getValues()[step] === value}
+        onChange={(event) => {
+          setValue(step, event.currentTarget.value);
+        }}
+      />
     ));
 
     return <div className={classes.radioGroup}>{inputs}</div>;
@@ -75,13 +74,10 @@ const SurvayFormUI: FC<TSurvayFormUI> = ({
       <div className={classes.inputGroup}>
         {radioInputs("problem", items.problem.values || [])}
 
-        <textarea
-          name=""
-          id=""
+        <TextAreaUI
           cols={30}
           rows={8}
           placeholder="Ваш комментарий"
-          className={classes.input}
           defaultValue={getValues().note}
           onChange={(event) => setValue("note", event.currentTarget.value)}
         />
@@ -92,9 +88,8 @@ const SurvayFormUI: FC<TSurvayFormUI> = ({
   const release = (
     <>
       <h3>{items.release.label}</h3>
-      <input
+      <InputUI
         type="text"
-        className={classes.input}
         placeholder="2012"
         defaultValue={getValues().release}
         onChange={(event) => setValue("release", event.currentTarget.value)}
@@ -112,9 +107,8 @@ const SurvayFormUI: FC<TSurvayFormUI> = ({
   const model = (
     <>
       <h3>{items.model.label}</h3>
-      <input
+      <InputUI
         type="text"
-        className={classes.input}
         placeholder="Hyundai Solaris"
         defaultValue={getValues().model}
         onChange={(event) => setValue("model", event.currentTarget.value)}
@@ -135,18 +129,16 @@ const SurvayFormUI: FC<TSurvayFormUI> = ({
       <p>{items.contact.description}</p>
 
       <div className={classes.inputGroup}>
-        <input
+        <InputUI
           type="text"
-          className={classes.input}
           placeholder="Ваше имя"
           defaultValue={getValues().contactName}
           onChange={(event) =>
             setValue("contactName", event.currentTarget.value)
           }
         />
-        <input
+        <InputUI
           type="tel"
-          className={classes.input}
           placeholder="Номер телефона"
           defaultValue={getValues().contactPhone}
           onChange={(event) => {

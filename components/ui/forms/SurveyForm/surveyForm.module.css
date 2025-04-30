@@ -24,37 +24,14 @@
   gap: 14px;
 }
 
-.radioItem {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 16px;
-}
-
 .inputGroup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--app-spacing-40);
 
-  @media(max-width: 1020px) {
+  @media (max-width: 1020px) {
     grid-template-columns: 1fr;
   }
-}
-
-.input {
-  border: 1px solid var(--app-text-color);
-  border-radius: 16px;
-  padding: var(--app-spacing-20);
-  color: var(--app-text-color);
-  font-family: var(--font-manrope-sans);
-  font-size: var(--app-font-size-md);
-  background-color: transparent;
-}
-
-.input:focus {
-  border: 1px solid var(--app-accent-color);
-  outline: none;
 }
 
 .buttonGroup {
@@ -66,11 +43,4 @@
   @media (min-width: 1020px) {
     grid-column-start: 2;
   }
-}
-
-.inputText {
-  border: 1px solid var(--app-text-color-dimmed);
-  border-radius: 16px;
-  padding: 4px 16px;
-  color: #ffffff;
 }
