@@ -18,3 +18,4 @@ export * from "./Section";
 export * from "./ServiceCard";
 export * from "./Services";
 export * from "./Survey";
+export * from "./inputs/Input";
