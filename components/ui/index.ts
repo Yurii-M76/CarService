@@ -16,3 +16,5 @@ export { default as BadgeUI } from "./Badge/Badge.ui";
 export { default as ModalUI } from "./Modal/modal.ui";
 export { default as ActionIconUI } from "./ActionIcon/ActionIcon.ui";
 export { default as ModalOverlayUI } from "./Modal-overlay/modal-overlay";
+
+export * from "./forms/SurveyForm";
