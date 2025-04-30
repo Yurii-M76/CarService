@@ -1,9 +1,24 @@
+import { FC } from "react";
 import Image from "next/image";
 import ContentUI from "../Content/Content.ui";
 import ButtonUI from "../Button/Button.ui";
 import classes from "./advantages.module.css";
 
-const AdvantagesUI = () => {
+export type TAdvantagesUI = {
+  title: string;
+  buttonLabel: string;
+  image: string;
+  advantagesList: string[];
+  variant: "leftImage" | "rightImage";
+};
+
+const AdvantagesUI: FC<TAdvantagesUI> = ({
+  title,
+  buttonLabel,
+  image,
+  advantagesList,
+  variant,
+}) => {
   const itemIcon = (
     <Image
       src="/advantages/advantages_item.svg"
@@ -17,37 +32,23 @@ const AdvantagesUI = () => {
   return (
     <>
       <ContentUI
-        variant="rightImage"
-        title="Ваша задача будет решена профессионально и без очередей"
-        pathImage="/advantages.jpg"
+        variant={variant}
+        title={title}
+        pathImage={image}
         heightImage={425}
         gapContent="md"
         marginX
       >
-        <ButtonUI
-          type="button"
-          label="Записаться на диагностику"
-          variant="accent"
-        />
+        <ButtonUI type="button" label={buttonLabel} variant="accent" />
       </ContentUI>
 
       <ul className={classes.list}>
-        <li className={classes.item}>
-          {itemIcon}
-          Каждый автомобиль — это отдельный проект, который закрепляется за
-          мастером.
-        </li>
-        <li className={classes.item}>
-          {itemIcon}
-          Разработанные стратегии, в нескольких ценовых вариантах, утверждаем
-          лично с Вами. Вы выбираете какой вариант ремонта более предпочтителен
-          по бюджету и срокам.
-        </li>
-        <li className={classes.item}>
-          {itemIcon}
-          Машина диагностируется и детально изучается группой мастеров, далее мы
-          подбираем правильную стратегию ремонта.
-        </li>
+        {advantagesList.map((item, index) => (
+          <li key={index} className={classes.item}>
+            {itemIcon}
+            {item}
+          </li>
+        ))}
       </ul>
     </>
   );
