@@ -1,6 +1,6 @@
 import { FC, memo, ReactNode } from "react";
-import ActionIconUI from "../ActionIcon/ActionIcon.ui";
-import ModalOverlayUI from "../Modal-overlay/modal-overlay";
+import { ActionIconUI } from "../ActionIcon";
+import { ModalOverlayUI } from "../Modal-overlay";
 import classes from "./modal.module.css";
 
 type TModalUI = {
