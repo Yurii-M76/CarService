@@ -1,5 +1,7 @@
+"use client";
+import { useState } from "react";
 import { TBrandList } from "../../types";
-import { BrandsUI } from "../ui";
+import { BrandCardUI, BrandsUI } from "../ui";
 
 const brandList: TBrandList = [
   { icon: "/brandIcons/Audi.svg", label: "Audi" },
@@ -22,7 +24,22 @@ const title =
   "Работаем с отечественными и иностранными брендами, в том числе с коммерческим транспортом";
 
 const Brands = () => {
-  return <BrandsUI title={title} brandList={brandList} />;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const visibleBrands = isOpen ? brandList : brandList.slice(0, 4);
+
+  return (
+    <BrandsUI title={title}>
+      {visibleBrands.map((item, index) => (
+        <BrandCardUI key={index} icon={item.icon} label={item.label} />
+      ))}
+      <BrandCardUI
+        icon={""}
+        label={!isOpen ? "Показать все" : "Свернуть"}
+        onClick={() => setIsOpen(!isOpen)}
+      />
+    </BrandsUI>
+  );
 };
 
 export default Brands;
