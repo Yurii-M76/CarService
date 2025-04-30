@@ -1,27 +1,24 @@
-"use client";
-import { FC, useState } from "react";
-import BadgeUI from "../Badge/Badge.ui";
+import { FC } from "react";
+import { TServiceCardUI } from "../../../types";
 import classes from "./serviceCard.module.css";
 
-type TServiceCard = {
-  label: string;
-  price: number;
-  promo: boolean;
-  image?: string;
-};
-
-const ServiceCard: FC<TServiceCard> = ({ label, price, promo, image }) => {
-  const [active, setActive] = useState(false);
-
+const ServiceCardUI: FC<TServiceCardUI> = ({
+  label,
+  price,
+  promo,
+  image,
+  badge,
+  setActive,
+}) => {
   return (
     <div
       className={classes.card}
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
+      onMouseEnter={setActive}
+      onMouseLeave={setActive}
     >
       <div className={classes.top}>
         <span className={classes.label}>{label}</span>
-        {promo && <BadgeUI label="АКЦИЯ" variant={active ? "black" : "red"} />}
+        {promo && badge}
       </div>
       <div className={classes.imageWrapper}>
         {image && (
@@ -44,4 +41,4 @@ const ServiceCard: FC<TServiceCard> = ({ label, price, promo, image }) => {
   );
 };
 
-export default ServiceCard;
+export default ServiceCardUI;

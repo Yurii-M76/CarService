@@ -1,5 +1,5 @@
-import { About, Brands, Header, Survey } from "../components";
-import { AdvantagesUI, SectionUI, ServicesUI } from "../components/ui";
+import { About, Brands, Header, Services, Survey } from "../components";
+import { AdvantagesUI, SectionUI } from "../components/ui";
 
 export default function HomePage() {
   return (
@@ -14,7 +14,7 @@ export default function HomePage() {
       </SectionUI>
 
       <SectionUI paddingX={false} pb={0}>
-        <ServicesUI />
+        <Services />
       </SectionUI>
 
       <SectionUI paddingX={false} pb={0} g={40}>
