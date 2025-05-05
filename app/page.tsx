@@ -5,6 +5,7 @@ import {
   Header,
   Services,
   Survey,
+  Trust,
 } from "../components";
 import { SectionUI } from "../components/ui";
 
@@ -30,6 +31,10 @@ export default function HomePage() {
 
       <SectionUI paddingX bgColor="gray" paddingY>
         <Survey />
+      </SectionUI>
+
+      <SectionUI paddingX bgColor="red" paddingY>
+        <Trust />
       </SectionUI>
     </>
   );

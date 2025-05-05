@@ -6,3 +6,4 @@ export * from "./modal";
 export * from "./service-card";
 export * from "./services";
 export * from "./survey";
+export * from "./trust";
