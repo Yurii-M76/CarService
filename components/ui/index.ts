@@ -19,3 +19,4 @@ export * from "./ServiceCard";
 export * from "./Services";
 export * from "./Survey";
 export * from "./inputs";
+export * from "./Trust";
