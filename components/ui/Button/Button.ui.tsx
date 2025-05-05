@@ -3,7 +3,7 @@ import classes from "./button.module.css";
 
 type TButtonUI = {
   label: string;
-  variant: "accent" | "outline";
+  variant: "accent" | "white" | "outline";
   type?: "button" | "submit" | "reset";
   isDisabled?: boolean;
   onClick?: () => void;
@@ -20,6 +20,7 @@ const ButtonUI: FC<TButtonUI> = ({
     classes.button,
     variant === "accent" ? classes.accent : null,
     variant === "outline" ? classes.outline : null,
+    variant === "white" ? classes.white : null,
     isDisabled ? classes.disabled : null,
   ]
     .filter(Boolean)

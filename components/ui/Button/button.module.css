@@ -5,33 +5,45 @@
     clamp(1rem, 0.569rem + 2.155vw, 2.25rem);
   font-size: clamp(0.875rem, 0.789rem + 0.431vw, 1.125rem);
   backdrop-filter: blur(10px);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    border: 2px solid transparent;
+    background-color: gray;
+    cursor: not-allowed;
+  }
 }
 
 .accent {
   background-color: var(--app-accent-color);
   transition: background-color 0.3s ease, border 0.3s ease;
+
+  &:hover {
+    border: 2px solid var(--app-accent-color);
+    background-color: transparent;
+  }
 }
 
-.accent:hover {
-  border: 2px solid var(--app-accent-color);
-  background-color: transparent;
+.white {
+  color: var(--app-bg-color);
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, border 0.3s ease;
+
+  &:hover {
+    border: 2px solid #ffffff;
+    color: var(--app-text-color);
+    background-color: transparent;
+  }
 }
 
 .outline {
   border: 2px solid var(--app-outline-color);
   transition: border 0.3s ease;
-}
 
-.outline:hover {
-  border: 2px solid var(--app-text-color-dimmed);
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
-.button:disabled {
-  border: 2px solid transparent;
-  background-color: gray;
-  cursor: not-allowed;
+  &:hover {
+    border: 2px solid var(--app-text-color-dimmed);
+  }
 }
