@@ -2,6 +2,7 @@ import {
   About,
   Advantages,
   Brands,
+  Contacts,
   Header,
   Services,
   Survey,
@@ -38,6 +39,10 @@ export default function HomePage() {
 
       <SectionUI paddingX bgColor="red" paddingY>
         <Trust />
+      </SectionUI>
+
+      <SectionUI paddingX bgColor="gray" paddingY>
+        <Contacts />
       </SectionUI>
     </>
   );
