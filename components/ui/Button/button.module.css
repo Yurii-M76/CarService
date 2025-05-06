@@ -25,6 +25,12 @@
     border: 2px solid var(--app-accent-color);
     background-color: transparent;
   }
+
+  &:disabled {
+    border: 2px solid transparent;
+    background-color: gray;
+    cursor: not-allowed;
+  }
 }
 
 .white {
@@ -36,6 +42,12 @@
     border: 2px solid #ffffff;
     color: var(--app-text-color);
     background-color: transparent;
+  }
+
+  &:disabled {
+    border: 2px solid transparent;
+    background-color: gray;
+    cursor: not-allowed;
   }
 }
 
