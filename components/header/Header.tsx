@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import AppModal from "../modal/Modal";
-import { THeaderValues, TNavigarionItems } from "../../types";
 import { ButtonUI, HeaderUI } from "../ui";
+import { Survey } from "../survey";
+import { THeaderValues, TNavigarionItems } from "../../types";
 
 const navigarion: TNavigarionItems = [
   { path: "#services", label: "Услуги", accent: false },
@@ -24,11 +25,12 @@ const Header = () => {
 
   const modal = (
     <AppModal
-      title="Заголовок"
+      title="Расчет стоимости ремонта"
       isOpen={openModal}
       onClose={() => setOpenModal(false)}
     >
-      Контент
+      <p>Ответьте на 5 вопросов и получите скидку 10% на диагностику</p>
+      <Survey />
     </AppModal>
   );
 
@@ -41,20 +43,11 @@ const Header = () => {
     />
   );
 
-  const secondaryButtonLabel = (
-    <ButtonUI
-      label={values.secondaryButtonLabel}
-      type="button"
-      variant="outline"
-    />
-  );
-
   return (
     <HeaderUI
       navigation={navigarion}
       values={values}
       accentButton={accentButton}
-      secondaryButtonLabel={secondaryButtonLabel}
     >
       {modal}
     </HeaderUI>
