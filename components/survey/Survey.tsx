@@ -48,7 +48,13 @@ const data: TSurveyItems = {
   },
 };
 
-const Survey = () => {
+const Survey = ({
+  title,
+  description,
+}: {
+  title?: string;
+  description?: string;
+}) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
   const nextStep = () =>
@@ -57,10 +63,7 @@ const Survey = () => {
     setCurrentStep((current) => (current > 0 ? current - 1 : current));
 
   return (
-    <SurveyUI
-      title="Расчет стоимости ремонта"
-      description="Ответьте на 5 вопросов и получите скидку 10% на диагностику"
-    >
+    <SurveyUI title={title} description={description}>
       <SurveyFormUI
         items={data}
         currentStep={currentStep}

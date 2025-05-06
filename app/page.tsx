@@ -30,7 +30,10 @@ export default function HomePage() {
       </SectionUI>
 
       <SectionUI paddingX bgColor="gray" paddingY>
-        <Survey />
+        <Survey
+          title="Расчет стоимости ремонта"
+          description="Ответьте на 5 вопросов и получите скидку 10% на диагностику"
+        />
       </SectionUI>
 
       <SectionUI paddingX bgColor="red" paddingY>
