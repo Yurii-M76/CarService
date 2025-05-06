@@ -8,7 +8,7 @@ import {
   Survey,
   Trust,
 } from "../components";
-import { SectionUI } from "../components/ui";
+import { MapUI, SectionUI } from "../components/ui";
 
 export default function HomePage() {
   return (
@@ -44,6 +44,8 @@ export default function HomePage() {
       <SectionUI paddingX bgColor="gray" paddingY>
         <Contacts />
       </SectionUI>
+
+      <MapUI />
     </>
   );
 }

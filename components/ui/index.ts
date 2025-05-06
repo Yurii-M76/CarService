@@ -21,3 +21,4 @@ export * from "./Survey";
 export * from "./inputs";
 export * from "./Trust";
 export * from "./Contacts";
+export * from "./Map";

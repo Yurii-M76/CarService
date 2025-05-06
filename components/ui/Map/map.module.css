@@ -1,0 +1,6 @@
+.iframe {
+  border: none;
+  border-radius: 32px;
+  max-inline-size: 1248px;
+  min-block-size: clamp(25rem, 21.044rem + 21.097vw, 37.5rem);
+}
