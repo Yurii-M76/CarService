@@ -7,7 +7,6 @@ type THeaderUI = {
   navigation: TNavigarionItems;
   values: THeaderValues;
   accentButton: ReactNode;
-  secondaryButtonLabel?: ReactNode;
   children?: ReactNode;
 };
 
@@ -15,7 +14,6 @@ const HeaderUI: FC<THeaderUI> = ({
   navigation,
   values,
   accentButton,
-  secondaryButtonLabel,
   children,
 }) => {
   return (
@@ -30,10 +28,7 @@ const HeaderUI: FC<THeaderUI> = ({
       </div>
       <div className={classes.content}>
         <h1>{values.title}</h1>
-        <div className={classes.buttons}>
-          {accentButton}
-          {secondaryButtonLabel}
-        </div>
+        <div className={classes.buttons}>{accentButton}</div>
       </div>
       {children}
     </div>
