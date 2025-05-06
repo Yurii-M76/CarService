@@ -5,4 +5,5 @@
   border: transparent;
   border-radius: 32px;
   padding: 0 clamp(1.5rem, 0.293rem + 6.034vw, 5rem);
+  overflow: hidden;
 }
