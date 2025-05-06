@@ -16,7 +16,7 @@ export type TSurveyItems = {
 };
 
 export type TSurveyUI = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   children: ReactNode;
 };
