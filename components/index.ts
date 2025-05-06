@@ -7,3 +7,4 @@ export * from "./service-card";
 export * from "./services";
 export * from "./survey";
 export * from "./trust";
+export * from "./contacts";
