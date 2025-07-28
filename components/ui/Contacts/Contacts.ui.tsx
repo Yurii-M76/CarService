@@ -10,8 +10,8 @@ const ContactsUI: FC<TContacts> = ({ title, content }) => {
         <article>
           <span style={{ fontWeight: "bold" }}>График работы:</span>
           <ul>
-            {content.workSchedule.map((item) => (
-              <li>{item}</li>
+            {content.workSchedule.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </article>
