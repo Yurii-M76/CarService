@@ -24,8 +24,6 @@ const Navbar: FC<TNavbar> = ({ links }) => {
             </li>
           ))}
         </ul>
-
-        <div className={classes.burger}>Burger</div>
       </nav>
     </>
   );
