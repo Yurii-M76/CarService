@@ -4,6 +4,7 @@ import classes from "./section.module.css";
 type TSectionUI = {
   children: ReactNode;
   paddingX: boolean;
+  id?: string;
   paddingY?: boolean;
   bgColor?: "gray" | "red";
   bgImage?: string;
@@ -23,6 +24,7 @@ const SectionUI: FC<TSectionUI> = ({
   h,
   g,
   children,
+  id,
 }) => {
   const backgroundColor =
     bgColor === "gray"
@@ -53,6 +55,7 @@ const SectionUI: FC<TSectionUI> = ({
 
   return (
     <div
+      id={id}
       className={classes.section}
       style={{
         backgroundColor,
