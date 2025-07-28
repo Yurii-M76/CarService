@@ -49,6 +49,11 @@
   grid-template-rows: repeat(2, 1fr);
   justify-content: end;
   text-align: end;
+
+  @media (max-width: 1023px) {
+    justify-content: start;
+    text-align: start;
+  }
 }
 
 .phone {

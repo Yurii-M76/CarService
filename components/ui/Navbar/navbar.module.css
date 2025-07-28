@@ -9,28 +9,10 @@
   }
 }
 
-.burger {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  inline-size: 100%;
-
-  @media (min-width: 661px) {
-    visibility: hidden;
-    display: none;
-  }
-}
-
 .list {
   display: flex;
   flex-wrap: nowrap;
-  gap: 14px;
-
-  @media (max-width: 660px) {
-    visibility: hidden;
-    display: none;
-  }
+  gap: 30px;
 }
 
 .item {
@@ -40,7 +22,7 @@
 }
 
 .link {
-  padding: 6px 12px;
+  padding: 6px 0;
   font-size: 16px;
 }
 
