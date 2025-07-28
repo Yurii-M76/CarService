@@ -22,6 +22,10 @@ body {
   background-color: var(--app-bg-color);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3 {
@@ -107,23 +111,23 @@ input[type="radio"] {
 }
 
 #modals {
-	position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 4;
-	visibility: hidden;
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-	opacity: 0;
-	background-color: transparent;
+  opacity: 0;
+  background-color: transparent;
   transition: opacity 0.35s ease, visibility 0.1s ease;
-	transform: translate(0);
-	&.open {
-		visibility: visible;
-		opacity: 1;
-	}
+  transform: translate(0);
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
 }
