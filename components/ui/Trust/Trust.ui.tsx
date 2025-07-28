@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { TTrust } from "../../../types";
-import { ButtonUI } from "../Button";
+import { AnchorUI } from "../Anchor";
 import classes from "./trust.module.css";
 
 type TTrustUI = {
@@ -14,7 +14,7 @@ const TrustUI: FC<TTrustUI> = ({ title, items }) => {
     <div className={classes.trust}>
       <div className={classes.left}>
         <h2>{title}</h2>
-        <ButtonUI label="Записаться на сервис" variant="white" />
+        <AnchorUI path="#form" label={"Записаться на сервис"} variant="white" />
       </div>
       <div className={classes.right}>
         {items.map((item, index) => (

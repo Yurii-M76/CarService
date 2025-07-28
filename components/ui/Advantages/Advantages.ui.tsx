@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import ContentUI from "../Content/Content.ui";
-import ButtonUI from "../Button/Button.ui";
+import { AnchorUI } from "../Anchor";
 import classes from "./advantages.module.css";
 
 export type TAdvantagesUI = {
@@ -39,7 +39,7 @@ const AdvantagesUI: FC<TAdvantagesUI> = ({
         gapContent="md"
         marginX
       >
-        <ButtonUI type="button" label={buttonLabel} variant="accent" />
+        <AnchorUI path="#form" label={buttonLabel} variant="accent" />
       </ContentUI>
 
       <ul className={classes.list}>
