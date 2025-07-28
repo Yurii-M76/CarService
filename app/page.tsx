@@ -17,12 +17,12 @@ export default function HomePage() {
         <Header />
       </SectionUI>
 
-      <SectionUI paddingX={false}>
+      <SectionUI id="about" paddingX={false}>
         <About />
         <Brands />
       </SectionUI>
 
-      <SectionUI paddingX={false} pb={0}>
+      <SectionUI id="services" paddingX={false} pb={0}>
         <Services />
       </SectionUI>
 
@@ -30,20 +30,18 @@ export default function HomePage() {
         <Advantages />
       </SectionUI>
 
-      <div id="form">
-        <SectionUI paddingX bgColor="gray" paddingY>
-          <Survey
-            title="Расчет стоимости ремонта"
-            description="Ответьте на 5 вопросов и получите скидку 10% на диагностику"
-          />
-        </SectionUI>
-      </div>
+      <SectionUI id="form" paddingX bgColor="gray" paddingY >
+        <Survey
+          title="Расчет стоимости ремонта"
+          description="Ответьте на 5 вопросов и получите скидку 10% на диагностику"
+        />
+      </SectionUI>
 
-      <SectionUI paddingX bgColor="red" paddingY>
+      <SectionUI paddingX bgColor="red" paddingY >
         <Trust />
       </SectionUI>
 
-      <SectionUI paddingX bgColor="gray" paddingY>
+      <SectionUI id="contacts" paddingX bgColor="gray" paddingY>
         <Contacts />
       </SectionUI>
 
