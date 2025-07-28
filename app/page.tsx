@@ -30,12 +30,14 @@ export default function HomePage() {
         <Advantages />
       </SectionUI>
 
-      <SectionUI paddingX bgColor="gray" paddingY>
-        <Survey
-          title="Расчет стоимости ремонта"
-          description="Ответьте на 5 вопросов и получите скидку 10% на диагностику"
-        />
-      </SectionUI>
+      <div id="form">
+        <SectionUI paddingX bgColor="gray" paddingY>
+          <Survey
+            title="Расчет стоимости ремонта"
+            description="Ответьте на 5 вопросов и получите скидку 10% на диагностику"
+          />
+        </SectionUI>
+      </div>
 
       <SectionUI paddingX bgColor="red" paddingY>
         <Trust />
