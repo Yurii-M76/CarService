@@ -1,8 +1,5 @@
 "use client";
-import { useState } from "react";
-import AppModal from "../modal/Modal";
-import { ButtonUI, HeaderUI } from "../ui";
-import { Survey } from "../survey";
+import { AnchorUI, HeaderUI } from "../ui";
 import { THeaderValues, TNavigarionItems } from "../../types";
 
 const navigarion: TNavigarionItems = [
@@ -21,36 +18,18 @@ const values: THeaderValues = {
 };
 
 const Header = () => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
-
-  const modal = (
-    <AppModal
-      title="Расчет стоимости ремонта"
-      isOpen={openModal}
-      onClose={() => setOpenModal(false)}
-    >
-      <p>Ответьте на 5 вопросов и получите скидку 10% на диагностику</p>
-      <Survey />
-    </AppModal>
-  );
-
-  const accentButton = (
-    <ButtonUI
-      label={values.accentButtonLabel}
-      type="button"
-      variant="accent"
-      onClick={() => setOpenModal(true)}
-    />
-  );
-
   return (
     <HeaderUI
       navigation={navigarion}
       values={values}
-      accentButton={accentButton}
-    >
-      {modal}
-    </HeaderUI>
+      accentButton={
+        <AnchorUI
+          path="#form"
+          label={values.accentButtonLabel}
+          variant="accent"
+        />
+      }
+    />
   );
 };
 
